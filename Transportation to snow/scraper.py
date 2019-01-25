@@ -20,13 +20,13 @@ def scrape_page():
 	# go to page
 	browser.visit(url)
 	# wait for dynamic elements to load
-	time.sleep(3)
+	time.sleep(2)
 	
 	for i in range(10):
 		# page uses lazy loading, so force a scroll action to load more resorts
 		browser.execute_script("window.scrollTo(0, 5000);")
 		# wait for page to load
-		time.sleep(3)
+		time.sleep(2)
 
 	# instantiate soup object
 	soup = bs(browser.html, 'html.parser')
@@ -39,7 +39,7 @@ def scrape_page():
 	# extract rows for each resort
 	resort_rows = table.find_all('tr')
 	resorts = {}
-	for i in range(len(resort_rows)):
+	for i in range(120):
 		# added some print statements to help us extract useful info prior to building dictionaries
 		# print('--------------------------------------------------------------------------------------------')
 		# print('Row {}'.format(i))

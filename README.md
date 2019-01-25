@@ -15,3 +15,5 @@ Instructions to run the app:
         •    mysql_pw = ‘your_pw_here’
         •    mysql_uri = ‘localhost’
         •    mysql_port = 3306
+
+

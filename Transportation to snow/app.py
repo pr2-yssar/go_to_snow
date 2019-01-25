@@ -18,9 +18,12 @@ app = Flask(__name__)
 connection_string = f"mysql://{mysql_un}:{mysql_pw}@{mysql_uri}:{mysql_port}/snow_report"
 if not database_exists(connection_string):
 	create_database(connection_string)
+
 engine = create_engine(connection_string)
 Base.metadata.create_all(engine)
+
 session = Session(bind=engine)
+
 
 @app.route("/")
 def home():
@@ -39,6 +42,9 @@ def getCSV():
                      attachment_filename='Adjacency.csv',
                      as_attachment=True)
 
+@app.route("/test")
+def test():
+	return render_template('test.html')
 
 # @app.route('/local/<zip_code>')
 # def local(zip_code):
@@ -54,9 +60,9 @@ def getCSV():
 # 	return jsonify(geodata)
 
 
-@app.route("/about")
-def about():
-	return render_template("cta.html")
+@app.route("/traffic")
+def traffic():
+	return render_template("traffic.html")
 
 @app.route('/geodata')
 def geodata():
@@ -94,9 +100,14 @@ def scatter():
 def scrape():
 	# Resorts = Base.classes.resorts
 	# conn = engine.connect()
-	# conn.execute(Resorts.__table__.delete())
+	# conn.execute()
+
 	# engine.execute('drop table resorts;')
 	# Base.meta.drop(bind=engine, tables=[user.__table__])
+	session.query(SkiResort).delete()
+	session.commit()
+
+
 	scraped_resorts = scraper.scrape_page()
 	resort_objects = []
 	current_timestamp = datetime.now()

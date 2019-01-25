@@ -1,0 +1,50 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>example </title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css"/>
+</head>
+	
+<body>
+    <div id="map"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js"></script>
+	<script src="https://www.mapquestapi.com/sdk/leaflet/v2.s/mq-map.js?key=uIuPu5IfZnZ8UcwoQ9OxLnos3UvwerYK"></script>
+	<script src="https://www.mapquestapi.com/sdk/leaflet/v2.s/mq-traffic.js?key=uIuPu5IfZnZ8UcwoQ9OxLnos3UvwerYK"></script>
+	<script src="static/js/traffic.js"></script>
+
+</body>
+
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Traffic Layer</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQl6XZoSXQ66-ZGVWxwyq3YcaeGuujtYM&callback=initMap">
+    </script>
+    <script src="static/js/traffic.js" type="text/javascript"></script>
+  </body>
+</html>
