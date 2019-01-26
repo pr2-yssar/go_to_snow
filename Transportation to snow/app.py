@@ -42,9 +42,9 @@ def getCSV():
                      attachment_filename='Adjacency.csv',
                      as_attachment=True)
 
-@app.route("/test")
-def test():
-	return render_template('test.html')
+@app.route("/maps")
+def maps():
+	return render_template('maps.html')
 
 # @app.route('/local/<zip_code>')
 # def local(zip_code):
@@ -81,12 +81,12 @@ def bar():
 	bardata = df.to_dict('list')
 	return jsonify(bardata)
 
-@app.route('/scatter')
-def scatter():
-    query='select * from ski_resort_stats'
-    df=pd.read_sql_query(query, session.bind)
-    scatter_data = df.to_dict('list')
-    return jsonify(scatter_data)
+# @app.route('/scatter')
+# def scatter():
+#     query='select * from ski_resort_stats'
+#     df=pd.read_sql_query(query, session.bind)
+#     scatter_data = df.to_dict('list')
+#     return jsonify(scatter_data)
 
 # @app.route('/dates/<start_date>/<end_date>')
 # def dates(start_date, end_date):

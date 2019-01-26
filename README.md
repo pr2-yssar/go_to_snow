@@ -15,5 +15,9 @@ Instructions to run the app:
         •    mysql_pw = ‘your_pw_here’
         •    mysql_uri = ‘localhost’
         •    mysql_port = 3306
+<<<<<<< HEAD
 
 
+=======
+3. Input the ski_resort_stats.csv as a table to your to your msqlbench snow_report db. 
+>>>>>>> 806bd589867652232d9ced5b271ca33399248884

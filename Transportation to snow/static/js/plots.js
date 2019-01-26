@@ -2,7 +2,7 @@
 
 
 
-// d3.json('/geodata').then(response=> console.log(response));
+
 
 d3.json('/bar').then(response=> {
 
@@ -50,40 +50,3 @@ var layout = {
 Plotly.newPlot('bar', data, layout);
 });
 
-
-// d3.json('/geodata').then(response=> console.log(response));
-
-// d3.json('/geodata').then(response=> {
-//     console.log(response)
-    
-    
-//     var trace1 = {
-//       x: response.resort_name,
-//       y: response.inches_24_hr,
-//       name: '24 Hour Snowfall',
-//       type: 'bar'
-//     };
-
-//     var trace2 = {
-//       x: response.resort_name,
-//       y: response.inches_72_hr,
-//       name: '72 Hour Snowfall',
-//       type: 'bar'
-//     };
-
-//     var data = [trace1, trace2];
-
-
-//     var layout = {
-//          barmode:'stack',
-//          title: 'U.S. Resorts with the Most Fresh Snow',
-//          xaxis: {
-//           title:  "Resorts"
-//          },
-//        yaxis: {
-//           title: "Inches of Snowfall"
-//        }
-//     };
-
-// Plotly.newPlot('bar2', data, layout);
-// });

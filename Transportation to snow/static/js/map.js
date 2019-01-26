@@ -2,49 +2,35 @@
 
 
 d3.json('/geodata').then(response=> {
-  console.log(response)
-  
+  console.log(response);
+ 
+var resortName = response['resort_name'],  
+    inches24Hour = response['inches_24_hr'],  
+    inches72Hour = response['inches_72_hr'], 
+    snowData = [resortName, inches24Hour, inches72Hour].reduce((a, b, c) => a.map((v, i) => v +
+     ' <br> ' + b[i] + ' <br> ' + c[i]));
+
+    console.log(resortName);
+    console.log(inches24Hour);
+    console.log(inches72Hour);
+    console.log(snowData);
+
 var data = [{
   type: 'scattermapbox',
   lat: response['lat'],
   lon: response['lon'],
   mode: 'markers',
   marker: {
-    size: 10,
+    size: 12,
     color:'magenta',
     hoverinfo:'text'
   },
-  text: response['resort_name'], 
+    text: snowData
 
 
-
-
-// var inputArray1 = ['abc', 'def', 'ghi'],
-//     inputArray2 = ['3', '6', '9'],
-//     outputArray = [inputArray1, inputArray2].reduce((a, b) => a.map((v, i) => v + ' - ' + b[i]));
-
-// console.log(outputArray);
-
-
-
-  
-  // text: response['resort_name'] + '<br>' +
-  //  'Inches last 24h: ' + response['inches_24_hr'] + '<br>' +
-  //   'Inches last 72h: ' + response['inches_72_hr'],
 }];
 
 
-
-//   var data = [{
-//        type: 'scattermapbox',
-//        text: response['resort_name'],
-//        lat: response['lat'],
-//        lon: response['lon'],
-//        // h24: response['inches_24_hr'],
-//        // h72: response['inches_72_hr'],
-//        // open: response['open_status']
-
-//     }];
   
   var layout = {
      title: 'US Ski Resorts',
@@ -71,8 +57,8 @@ var data = [{
       l: 20, 
       pad: 0
     }, 
-    paper_bgcolor: '#191A1A', 
-    plot_bgcolor: '#191A1A', 
+    paper_bgcolor: '#1a1919', //'#191A1A'
+    plot_bgcolor: '#1a1919', 
     showlegend: false,
      annotations: [{
        x: 0,
@@ -85,7 +71,7 @@ var data = [{
   };
   
   Plotly.setPlotConfig({
-    mapboxAccessToken: 'pk.eyJ1IjoicmVkYWIiLCJhIjoiY2pwcHBxa3I2MHI3aTQzbWx4MWEyajZ4dyJ9.kufbSTDyB5DsKZQIx1MnTA'
+    mapboxAccessToken: 'YOURPLOTLYKEYHERE'
   });
   
   Plotly.plot('graphDiv', data, layout, {showSendToCloud: true});
